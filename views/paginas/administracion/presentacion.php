@@ -104,45 +104,38 @@
 
     <?php include '../administracion/menu_lateral.php'; ?>
 
-    <div class="container mt-5">
-        <!-- Sección de Bienvenida -->
-        <div class="jumbotron text-center bg-success text-white">
-            <h1 class="display-4">Bienvenido a Nuestro Portal de Servicios</h1>
-            <p class="lead">Explora, administra y personaliza tus opciones de cuenta.</p>
-            <hr class="my-4 bg-white">
-            <p>Esta plataforma te permite gestionar tu perfil, acceder a tus datos de usuario, y disfrutar de una experiencia personalizada.</p>
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <img src="../../imagenes/user.jpg" class="card-img-top" alt="Perfil">
+            <div class="card-body">
+                <h5 class="card-title">Tu Perfil</h5>
+                <p class="card-text">Administra tu información personal y ajusta tu perfil para mejorar tu experiencia en nuestra plataforma.</p>
+            </div>
         </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <img src="../../imagenes/credito.jpg" class="card-img-top" alt="Créditos">
+            <div class="card-body">
+                <h5 class="card-title">Gestión de Créditos</h5>
+                <p class="card-text">Consulta tus créditos disponibles, historial y plazos de pago fácilmente desde esta sección.</p>
+                <a href="../../views/paginas/creditos.php" class="btn btn-outline-primary btn-sm">Ver Créditos</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <img src="../../imagenes/pagos.jpg" class="card-img-top" alt="Formas de Pago">
+            <div class="card-body">
+                <h5 class="card-title">Formas de Pago</h5>
+                <p class="card-text">Explora los métodos de pago disponibles y gestiona tus transacciones de manera segura.</p>
+                <a href="../../views/paginas/formas_pago.php" class="btn btn-outline-success btn-sm">Ver Opciones</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <!-- Sección de Información General -->
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="../../imagenes/user.jpg" class="card-img-top" alt="Perfil">
-                    <div class="card-body">
-                        <h5 class="card-title">Tu Perfil</h5>
-                        <p class="card-text">Administra tu información personal y ajusta tu perfil para mejorar tu experiencia en nuestra plataforma.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="../../imagenes/config.jpg" class="card-img-top" alt="Configuración">
-                    <div class="card-body">
-                        <h5 class="card-title">Configuración de Preferencias</h5>
-                        <p class="card-text">Personaliza tu experiencia eligiendo tus preferencias de visualización y notificaciones.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="../../imagenes/soporte.png" class="card-img-top" alt="Soporte">
-                    <div class="card-body">
-                        <h5 class="card-title">Soporte y Ayuda</h5>
-                        <p class="card-text">¿Necesitas ayuda? Accede a nuestro soporte para obtener respuestas y asistencia.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Sección de Beneficios del Sistema -->
         <div class="row mt-4">
