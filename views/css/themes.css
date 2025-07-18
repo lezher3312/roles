@@ -1,0 +1,37 @@
+/* Default theme (Light) */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #007bff;
+}
+
+/* Dark theme */
+.dark-theme {
+    --background-color: #333333;
+    --text-color: #ffffff;
+    --primary-color: #1a73e8;
+}
+
+/* Blue theme */
+.blue-theme {
+    --background-color: #e3f2fd;
+    --text-color: #0d47a1;
+    --primary-color: #2196f3;
+}
+
+/* Green theme */
+.green-theme {
+    --background-color: #e8f5e9;
+    --text-color: #1b5e20;
+    --primary-color: #4caf50;
+}
+
+/* Apply these variables */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}

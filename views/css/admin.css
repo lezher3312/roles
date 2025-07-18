@@ -1,0 +1,174 @@
+/* Estilos para el módulo de administración */
+.admin-container {
+    width: 600px;
+    margin: 20px auto;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del contenedor */
+.admin-container h2 {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #007bff;
+    padding: 10px; /* Mantiene el espacio reducido */
+    margin: 0 auto; /* Centrado */
+    border-radius: 8px 8px 0 0;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .admin-container h2 {
+        font-size: 16px; /* Reduce el tamaño de la fuente en móviles */
+        padding: 6px; /* Reduce aún más el espacio interno */
+        line-height: 1.2; /* Mejora la altura de línea */
+        word-break: break-word; /* Ajusta palabras largas */
+    }
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--sidebar-background-color);
+    color: var(--sidebar-text-color);
+}
+
+.action-button {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.action-button.delete {
+    background-color: #e74c3c; /* Keeping specific color for delete button */
+}
+
+.action-button:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para la gestión de roles y permisos */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Layout adjustments */
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+@media (min-width: 992px) { /* For medium and large screens */
+    .container-fluid {
+        flex-direction: row;
+    }
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .content {
+        margin-left: 250px;
+    }
+}
+
+.sidebar {
+    background-color: var(--sidebar-background-color);
+    color: var(--sidebar-text-color);
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--sidebar-text-color);
+}
+
+.content {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+@media (max-width: 991px) { /* For small screens */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+.action-button.view {
+    background-color: #3498db; /* Azul claro */
+    color: #ffffff;
+}
+
+.action-button.edit {
+    background-color: #1abc9c; /* Verde claro */
+    color: #ffffff;
+}
+
+/* Botones de acción */
+.action-button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.action-button.view {
+    background-color: #3498db;
+}
+
+.action-button.edit {
+    background-color: #1abc9c;
+}
+
+.action-button.delete {
+    background-color: #e74c3c;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+}

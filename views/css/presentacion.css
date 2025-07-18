@@ -1,0 +1,45 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Jumbotron de bienvenida */
+.jumbotron {
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos para las tarjetas */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #666;
+}
+
+/* Beneficios del sistema */
+.card-header.bg-info {
+    background-color: #17a2b8 !important;
+    color: #ffffff;
+}

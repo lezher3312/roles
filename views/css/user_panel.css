@@ -1,0 +1,57 @@
+/* Estilos básicos para formularios y tablas en el panel de usuario */
+.user-panel-container {
+    width: 500px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
+}
+
+.user-panel-container h2 {
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.auth-button:hover {
+    background-color: #2c3e50;
+}
+
+.user-panel-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-panel-container ul li {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.user-panel-container ul li strong {
+    color: #34495e;
+}

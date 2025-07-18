@@ -1,0 +1,99 @@
+/* roles.css */
+
+/* Body styling with theme support */
+body {
+    background-color: var(--background-color, #f8f9fa); /* Light background by default */
+    color: var(--text-color, #333333); /* Dark text color by default */
+}
+
+/* Container for admin content */
+.admin-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: var(--background-color, #ffffff);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Page title */
+.admin-container h2 {
+    color: var(--primary-color, #007bff); /* Primary theme color for heading */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--sidebar-background-color, #34495e); /* Sidebar theme color for table header */
+    color: var(--sidebar-text-color, #ffffff); /* Text color for table header */
+    font-weight: 600;
+}
+
+table td {
+    color: var(--text-color, #333333); /* Text color for table content */
+}
+
+/* Action buttons for Edit and Delete */
+.action-button {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: var(--primary-color, #007bff); /* Default to primary color */
+    margin-right: 5px;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #0056b3; /* Slightly darker shade for hover */
+}
+
+.action-button.delete {
+    background-color: #e74c3c; /* Specific color for delete action */
+}
+
+.action-button.delete:hover {
+    background-color: #c0392b; /* Darker red on hover for delete button */
+}
+
+/* Button styling for adding new role */
+.btn-primary {
+    background-color: var(--primary-color, #007bff); /* Theme primary color */
+    border-color: var(--primary-color, #007bff);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004494;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-container {
+        width: 95%;
+        padding: 15px;
+    }
+    table th, table td {
+        padding: 8px;
+    }
+    .action-button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}

@@ -1,0 +1,127 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.admin-container {
+    padding: 20px;
+    max-width: 1200px; /* Ajuste para pantallas grandes */
+    margin: 40px auto; /* Centrado horizontal y vertical */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del contenedor */
+/* Título del contenedor */
+.admin-container h2 {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #007bff;
+    padding: 10px; /* Mantiene el espacio reducido */
+    margin: 0 auto; /* Centrado */
+    border-radius: 8px 8px 0 0;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .admin-container h2 {
+        font-size: 16px; /* Reduce el tamaño de la fuente en móviles */
+        padding: 6px; /* Reduce aún más el espacio interno */
+        line-height: 1.2; /* Mejora la altura de línea */
+        word-break: break-word; /* Ajusta palabras largas */
+    }
+}
+
+
+/* Contenedor de la tabla */
+.table-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    overflow-x: auto; /* Permite desplazamiento en dispositivos móviles */
+}
+
+/* Tabla */
+.table {
+    width: 100%;
+    max-width: 1000px; /* Limita el ancho en pantallas grandes */
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado de la tabla */
+thead {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Celdas del cuerpo de la tabla */
+tbody td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    thead {
+        display: none;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .table {
+        display: block;
+        width: 100%;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+    }
+}
+
