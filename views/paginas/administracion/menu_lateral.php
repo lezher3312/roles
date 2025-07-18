@@ -58,16 +58,7 @@ function verificarAccesoModulo($ruta) {
         <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/perfil.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/perfil/perfil.php"><i class="fas fa-user-circle icon icon-profile"></i> Perfil de Usuario</a></li>
         <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/preferencias.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/perfil/preferencias.php"><i class="fas fa-cog icon icon-preferences"></i> Preferencias</a></li>
-        <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/historial.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/perfil/historial.php"><i class="fas fa-history icon icon-history"></i> Historial de Actividades</a></li>
-        <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/ayuda.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/perfil/ayuda.php"><i class="fas fa-question-circle icon icon-help"></i> Ayuda y Soporte</a></li>
-        <?php endif; ?>
-         <?php if (verificarAccesoModulo('/Login/views/paginas/clientes/clientes.php')): ?>
+                 <?php if (verificarAccesoModulo('/Login/views/paginas/clientes/clientes.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/clientes/clientes.php"><i class="fas fa-home icon icon-history"></i> Clientes</a></li>
         <?php endif; ?>
          <?php if (verificarAccesoModulo('/Login/views/paginas/proveedores/proveedores.php')): ?>
@@ -78,6 +69,9 @@ function verificarAccesoModulo($ruta) {
         <?php endif; ?>
          <?php if (verificarAccesoModulo('/Login/views/paginas/creditos/creditos.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/creditos/creditos.php"><i class="fas fa-home icon icon-user"></i> Creditos</a></li>
+        <?php endif; ?>
+        <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/ayuda.php')): ?>
+            <li class="menu-item"><a href="/Login/views/paginas/perfil/ayuda.php"><i class="fas fa-question-circle icon icon-help"></i> Ayuda y Soporte</a></li>
         <?php endif; ?>
     </ul>
     <div class="logout-container">
