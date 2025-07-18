@@ -29,68 +29,35 @@
         </div>
 
         <!-- Accesos Rápidos -->
-        <div class="d-flex flex-wrap gap-2 mb-4">
-            <a href="crear.php" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i> Añadir Usuario</a>
-            <a href="modulos.php" class="btn btn-outline-success"><i class="fas fa-box"></i> Ver Modulos</a>
-            <a href="accesos.php" class="btn btn-outline-secondary"><i class="fas fa-chart-line"></i>Asignar Accesos </a>
-        </div>
-
-        <!-- Panel de Estadísticas -->
-        <div class="row mb-4">
-            <div class="col-md-3 mb-3">
-                <div class="card text-white bg-primary shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Usuarios Registrados</h5>
-                        <p class="card-text display-4">1,024</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gráfico de Ventas -->
-        <div class="card mb-4">
-            <div class="card-header bg-info text-white">
-                <h5 class="mb-0">Ventas Mensuales</h5>
-            </div>
-            <div class="card-body">
-                <canvas id="salesChart" width="400" height="200"></canvas>
-            </div>
-        </div>
-
-        <!-- Actividades Recientes -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5>Actividades Recientes</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Usuario Juan Pérez ha registrado un nuevo pedido.</li>
-                <li class="list-group-item">Nuevo usuario registrado: Ana Torres.</li>
-                <li class="list-group-item">Actualización de inventario en la categoría electrónica.</li>
-            </ul>
-        </div>
-    </main>
+   <!-- Accesos Rápidos (estilo tarjetas) -->
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <a href="../usuarios/usuarios.php" class="btn btn-outline-primary w-100 text-left shadow-sm p-3">
+            <i class="fas fa-user-cog fa-lg mr-2"></i> Administración de Usuarios
+        </a>
+    </div>
+    <div class="col-md-4 mb-3">
+        <a href="../roles/roles.php" class="btn btn-outline-success w-100 text-left shadow-sm p-3">
+            <i class="fas fa-user-shield fa-lg mr-2"></i> Gestión de Roles
+        </a>
+    </div>
+    <div class="col-md-4 mb-3">
+        <a href="../roles/permisos.php" class="btn btn-outline-warning w-100 text-left shadow-sm p-3">
+            <i class="fas fa-key fa-lg mr-2"></i> Gestión de Permisos
+        </a>
+    </div>
+    <div class="col-md-4 mb-3">
+        <a href="modulos.php" class="btn btn-outline-info w-100 text-left shadow-sm p-3">
+            <i class="fas fa-box fa-lg mr-2"></i> Ver Módulos
+        </a>
+    </div>
+    <div class="col-md-4 mb-3">
+        <a href="accesos.php" class="btn btn-outline-secondary w-100 text-left shadow-sm p-3">
+            <i class="fas fa-chart-line fa-lg mr-2"></i> Asignar Accesos
+        </a>
+    </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    const ctx = document.getElementById('salesChart').getContext('2d');
-    const salesChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-            datasets: [{
-                label: 'Ventas en USD',
-                data: [1200, 1900, 3000, 500, 2000, 3000],
-                backgroundColor: 'rgba(75, 192, 192, 0.6)'
-            }]
-        },
-        options: {
-            scales: {
-                y: { beginAtZero: true }
-            }
-        }
-    });
-</script>
 
 </body>
 </html>

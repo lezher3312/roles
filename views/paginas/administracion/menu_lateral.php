@@ -55,15 +55,6 @@ function verificarAccesoModulo($ruta) {
         <?php if (verificarAccesoModulo('/Login/views/paginas/administracion/admin_panel.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/administracion/admin_panel.php"><i class="fas fa-tachometer-alt icon icon-role"></i> Administración</a></li>
         <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/usuarios/usuarios.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/usuarios/usuarios.php"><i class="fas fa-user icon icon-user"></i> Administración de Usuarios</a></li>
-        <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/roles/roles.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/roles/roles.php"><i class="fas fa-user-shield icon icon-role"></i> Gestión de Roles</a></li>
-        <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/roles/permisos.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/roles/permisos.php"><i class="fas fa-key icon icon-permission"></i> Gestión de Permisos</a></li>
-        <?php endif; ?>
         <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/perfil.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/perfil/perfil.php"><i class="fas fa-user-circle icon icon-profile"></i> Perfil de Usuario</a></li>
         <?php endif; ?>
@@ -75,6 +66,18 @@ function verificarAccesoModulo($ruta) {
         <?php endif; ?>
         <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/ayuda.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/perfil/ayuda.php"><i class="fas fa-question-circle icon icon-help"></i> Ayuda y Soporte</a></li>
+        <?php endif; ?>
+         <?php if (verificarAccesoModulo('/Login/views/paginas/clientes/clientes.php')): ?>
+            <li class="menu-item"><a href="/Login/views/paginas/clientes/clientes.php"><i class="fas fa-home icon icon-history"></i> Clientes</a></li>
+        <?php endif; ?>
+         <?php if (verificarAccesoModulo('/Login/views/paginas/proveedores/proveedores.php')): ?>
+            <li class="menu-item"><a href="/Login/views/paginas/proveedores/proveedores.php"><i class="fas fa-home icon icon-user"></i> Proveedores</a></li>
+        <?php endif; ?>
+         <?php if (verificarAccesoModulo('/Login/views/paginas/pagos/pagos.php')): ?>
+            <li class="menu-item"><a href="/Login/views/paginas/pagos/pagos.php"><i class="fas fa-home icon icon-user"></i>Pagos</a></li>
+        <?php endif; ?>
+         <?php if (verificarAccesoModulo('/Login/views/paginas/creditos/creditos.php')): ?>
+            <li class="menu-item"><a href="/Login/views/paginas/creditos/creditos.php"><i class="fas fa-home icon icon-user"></i> Creditos</a></li>
         <?php endif; ?>
     </ul>
     <div class="logout-container">
