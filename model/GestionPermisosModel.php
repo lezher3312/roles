@@ -63,4 +63,16 @@ public function obtenerPermisosPorRolYModulo($id_rol, $modulo_nombre) {
             }
         }
     }
+
+public function obtenerModulosAsignadosAlRol($id_rol) {
+    $sql = "SELECT m.* 
+            FROM modulos m 
+            INNER JOIN roles_modulos rm ON m.id_modulo = rm.id_modulo 
+            WHERE rm.id_rol = ?";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([$id_rol]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 }
