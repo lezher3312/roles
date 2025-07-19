@@ -8,16 +8,29 @@ $clientes = $model->obtenerClientes();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <link rel="stylesheet" href="../../css/admin.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <style>
+        :root {
+            --body-color: #c4d3e0;
+            --primary-color: #012b7e;
+            --primary-color-light: #5dd3e9;
+            --text-color: #011149;
+        }
+
         body {
-            background-color: #f4f6f9;
+            background-color: var(--body-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
         }
 
         .main-content {
@@ -32,32 +45,32 @@ $clientes = $model->obtenerClientes();
             }
         }
 
-        .table-wrapper {
-            width: 95%;
-            margin: 0 auto;
+        .title-section {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .btn-primary, .btn-success, .btn-warning, .btn-danger {
+            border: none;
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color-light);
         }
 
         .card {
-            border: none;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
-
-        .card .card-body {
-            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .table thead {
-            background-color: #2c3e50;
+            background-color: var(--primary-color);
             color: white;
-        }
-
-        .table td, .table th {
-            vertical-align: middle;
-        }
-
-        .btn {
-            border-radius: 20px;
         }
 
         .badge-success {
@@ -66,20 +79,6 @@ $clientes = $model->obtenerClientes();
 
         .badge-secondary {
             background-color: #6c757d;
-        }
-
-        .title-section {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-
-        .modal-header {
-            border-bottom: none;
-        }
-
-        .modal-footer {
-            border-top: none;
         }
     </style>
 </head>
@@ -91,55 +90,53 @@ $clientes = $model->obtenerClientes();
     <h2 class="title-section text-center">Gestión de Clientes</h2>
 
     <!-- Botón Agregar -->
-    <div class="mb-4 text-right">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#clienteModal" onclick="abrirModalNuevo()">
-            <i class="fas fa-user-plus"></i> Agregar Nuevo Cliente
+    <div class="mb-4 text-end">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clienteModal" onclick="abrirModalNuevo()">
+            <i class="fas fa-user-plus"></i> Agregar Cliente
         </button>
     </div>
 
     <!-- Tabla -->
-    <div class="table-wrapper">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover table-bordered table-striped">
-                        <thead class="thead-dark">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($clientes as $c): ?>
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Teléfono</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
+                                <td><?= $c['id_cliente'] ?></td>
+                                <td><?= $c['nombre'] ?></td>
+                                <td><?= $c['correo'] ?></td>
+                                <td><?= $c['telefono'] ?></td>
+                                <td>
+                                    <span class="badge badge-<?= $c['estado'] == 'activo' ? 'success' : 'secondary' ?>">
+                                        <?= ucfirst($c['estado']) ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" onclick='abrirModalEditar(<?= json_encode($c) ?>)'>
+                                        <i class="fas fa-edit"></i> Editar
+                                    </button>
+                                    <a href="../../../controllers/ClienteController.php?accion=eliminar&id=<?= $c['id_cliente'] ?>"
+                                       onclick="return confirm('¿Deseas eliminar este cliente?')"
+                                       class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash-alt"></i> Eliminar
+                                    </a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($clientes as $c): ?>
-                                <tr>
-                                    <td><?= $c['id_cliente'] ?></td>
-                                    <td><?= $c['nombre'] ?></td>
-                                    <td><?= $c['correo'] ?></td>
-                                    <td><?= $c['telefono'] ?></td>
-                                    <td>
-                                        <span class="badge badge-<?= $c['estado'] == 'activo' ? 'success' : 'secondary' ?>">
-                                            <?= ucfirst($c['estado']) ?>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-sm btn-warning" onclick='abrirModalEditar(<?= json_encode($c) ?>)'>
-                                            <i class="fas fa-edit"></i> Editar
-                                        </button>
-                                        <a href="../../../controllers/ClienteController.php?accion=eliminar&id=<?= $c['id_cliente'] ?>"
-                                           onclick="return confirm('¿Deseas eliminar este cliente?')"
-                                           class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash-alt"></i> Eliminar
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -152,37 +149,37 @@ $clientes = $model->obtenerClientes();
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="clienteModalLabel">Nuevo Cliente</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id_cliente" id="id_cliente">
-                    <div class="form-group">
-                        <label>Nombre</label>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" name="nombre" id="nombre" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <label>Dirección</label>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
                         <input type="text" name="direccion" id="direccion" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label>Teléfono</label>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
                         <input type="text" name="telefono" id="telefono" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label>Correo</label>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
                         <input type="email" name="correo" id="correo" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label>Estado</label>
-                        <select name="estado" id="estado" class="form-control">
+                    <div class="mb-3">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" id="estado" class="form-select">
                             <option value="activo">Activo</option>
                             <option value="inactivo">Inactivo</option>
                         </select>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </form>
@@ -190,8 +187,8 @@ $clientes = $model->obtenerClientes();
 </div>
 
 <!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script>
 function abrirModalNuevo() {
@@ -202,7 +199,7 @@ function abrirModalNuevo() {
     document.getElementById('telefono').value = '';
     document.getElementById('correo').value = '';
     document.getElementById('estado').value = 'activo';
-    $('#clienteModal').modal('show');
+    new bootstrap.Modal(document.getElementById('clienteModal')).show();
 }
 
 function abrirModalEditar(cliente) {
@@ -213,7 +210,7 @@ function abrirModalEditar(cliente) {
     document.getElementById('telefono').value = cliente.telefono;
     document.getElementById('correo').value = cliente.correo;
     document.getElementById('estado').value = cliente.estado;
-    $('#clienteModal').modal('show');
+    new bootstrap.Modal(document.getElementById('clienteModal')).show();
 }
 </script>
 

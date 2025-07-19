@@ -124,4 +124,11 @@ class UsuarioModel {
         return $stmt->execute([$contrasena, $id_usuario]);
     }
     
+    public function eliminarUsuario($id_usuario) {
+    $stmt = $this->conn->prepare("DELETE FROM usuarios WHERE id_usuario = ?");
+    return $stmt->execute([$id_usuario]);
+    }
+
+
+
 }

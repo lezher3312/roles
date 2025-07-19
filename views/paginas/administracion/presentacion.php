@@ -3,154 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a Nuestro Portal</title>
-    <!-- Bootstrap CSS -->
+    <title>Panel Administrativo</title>
+    <!-- Bootstrap y estilos base -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/presentacion.css">
     <link rel="stylesheet" href="../../css/admin.css">
     <link rel="stylesheet" href="../../css/admin_panel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-        }
-        .sidebar {
-            width: 250px;
-            transition: transform 0.3s ease;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            transform: translateX(-100%);
-            z-index: 1050;
-        }
-        .sidebar.show {
-            transform: translateX(0);
-        }
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            margin: 1rem;
+            background-color: #f4f6f9;
         }
         .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+            margin-left: 250px;
+            padding: 25px;
         }
         .jumbotron {
-            max-width: 800px;
-            margin: auto;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
+            background-color: #012b7e;
+            color: white;
+            border-radius: 8px;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
         }
         .card img {
-            height: 180px;
+            height: 150px;
             object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
-        @media (min-width: 768px) {
-            .menu-toggle { display: none; }
-            .sidebar {
-                transform: translateX(0);
-                position: static;
-                width: 250px;
-            }
-            .container {
-                margin-left: 250px;
-            }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #012b7e;
+        }
+        .btn-sm-custom {
+            padding: 5px 15px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+        }
+        .card-body p {
+            font-size: 0.9rem;
         }
         @media (max-width: 767px) {
-            .menu-toggle { display: block; }
-            .jumbotron h1 { font-size: 1.8rem; }
-            .jumbotron p { font-size: 1rem; }
-            .card { margin-bottom: 1rem; }
-            .card-title { font-size: 1.2rem; }
-            .card-text { font-size: 0.9rem; }
+            .container {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
-<body class="bg-light">
-    <!-- Botón de menú para móviles -->
-    <div class="menu-toggle text-primary" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i> Menú
+<body>
+
+<?php include '../administracion/menu_lateral.php'; ?>
+
+<div class="container mt-4">
+
+    <div class="jumbotron text-center">
+        <h2 class="mb-3">Panel Administrativo</h2>
+        <p class="lead mb-0">Gestión interna para roles: Administrador, Asesor y Secretaria.</p>
     </div>
 
-    <?php include '../administracion/menu_lateral.php'; ?>
-
-    <div class="container mt-5">
-        <!-- Jumbotron de bienvenida -->
-        <div class="jumbotron text-center bg-success text-white">
-            <h1 class="display-4">Bienvenido al Portal Administrativo</h1>
-            <p class="lead">Accede rápidamente a la gestión de créditos, pagos y tu perfil de usuario.</p>
-            <hr class="my-4 bg-white">
-            <p>Este portal está diseñado para el uso de Administradores, Asesores y Secretarias.</p>
-        </div>
-
-        <!-- Tarjetas principales -->
-        <div class="row text-center">
-            <!-- Gestión de Créditos -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="../../imagenes/credito.jpg" class="card-img-top" alt="Gestión de Créditos">
-                    <div class="card-body">
-                        <h5 class="card-title">Gestión de Créditos</h5>
-                        <p class="card-text">Consulta, administra y realiza seguimiento de los créditos otorgados a los clientes.</p>
-                        <a href="../../views/paginas/creditos.php" class="btn btn-outline-primary btn-sm">Ir a Créditos</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Formas de Pago -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="../../imagenes/pagos.jpg" class="card-img-top" alt="Formas de Pago">
-                    <div class="card-body">
-                        <h5 class="card-title">Formas de Pago</h5>
-                        <p class="card-text">Consulta y administra los métodos de pago disponibles y verifica los pagos registrados.</p>
-                        <a href="../../views/paginas/formas_pago.php" class="btn btn-outline-success btn-sm">Ver Métodos</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Perfil -->
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="../../imagenes/user.jpg" class="card-img-top" alt="Perfil de Usuario">
-                    <div class="card-body">
-                        <h5 class="card-title">Tu Perfil</h5>
-                        <p class="card-text">Revisa y actualiza tus datos personales, credenciales y configuraciones básicas de cuenta.</p>
-                        <a href="../../views/paginas/perfil.php" class="btn btn-outline-secondary btn-sm">Ver Perfil</a>
-                    </div>
+    <div class="row text-center">
+        <!-- Créditos -->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="../../imagenes/credito.jpg" class="card-img-top" alt="Créditos">
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Créditos</h5>
+                    <p>Administra los créditos otorgados a clientes.</p>
+                    <a href="../../views/paginas/creditos.php" class="btn btn-primary btn-sm-custom">
+                        <i class="fas fa-file-invoice-dollar"></i> Créditos
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Beneficios -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-info text-white text-center">
-                        <h4 class="mb-0">Beneficios de Usar este Portal</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li><strong>Gestión Eficiente:</strong> Centraliza tus procesos de administración interna.</li>
-                            <li><strong>Acceso Rápido:</strong> Ingresa fácilmente a las funciones más utilizadas.</li>
-                            <li><strong>Interfaz Clara:</strong> Diseñada para tres roles con funciones específicas.</li>
-                            <li><strong>Actualización Continua:</strong> Siempre en mejora según las necesidades reales del equipo.</li>
-                        </ul>
-                    </div>
+        <!-- Formas de Pago -->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="../../imagenes/formas de pago.png" class="card-img-top" alt="Pagos">
+                <div class="card-body">
+                    <h5 class="card-title">Formas de Pago</h5>
+                    <p>Consulta y gestiona los pagos realizados.</p>
+                    <a href="../../views/paginas/formas_pago.php" class="btn btn-success btn-sm-custom">
+                        <i class="fas fa-credit-card"></i> Pagos
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil -->
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="../../imagenes/user.jpg" class="card-img-top" alt="Perfil">
+                <div class="card-body">
+                    <h5 class="card-title">Perfil de Usuario</h5>
+                    <p>Consulta y edita tu perfil y credenciales.</p>
+                    <a href="../../views/paginas/perfil.php" class="btn btn-dark btn-sm-custom">
+                        <i class="fas fa-user-cog"></i> Perfil
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('show');
-        }
-    </script>
+</div>
+
+<!-- JS Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

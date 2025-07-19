@@ -70,6 +70,11 @@ class UsuarioController {
         }
     }
 
+    public function eliminarUsuario($id_usuario) {
+    $usuarioModel = new UsuarioModel();
+    return $usuarioModel->eliminarUsuario($id_usuario);
+    }
+
     // Load all users
     public function mostrarUsuarios() {
         $usuarioModel = new UsuarioModel();
@@ -134,6 +139,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $controller->registrarUsuario($nombre, $email, $contrasena, $confirmar_contrasena);
             break;
 
+          case 'crearUsuarioAdmin':
+            $nombre = $_POST['nombre'];
+            $email = $_POST['email'];
+            $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
+            $id_rol = $_POST['id_rol'];
+
+            $exito = $controller->crearUsuarioAdmin($nombre, $email, $contrasena, $id_rol);
+
+            if ($exito) {
+                header("Location: ../views/paginas/usuarios/usuarios.php?mensaje=usuario_creado");
+            } else {
+                header("Location: ../views/paginas/usuarios/usuarios.php?error=error_creacion");
+            }
+            exit();
+
+            case 'eliminarUsuario':
+            $id = $_POST['id_usuario'];
+            $resultado = $controller->eliminarUsuario($id);
+            echo $resultado ? "success" : "error";
+            exit();
+            break;
+
+
         case 'actualizarPerfil':
             $id_usuario = $_POST['id_usuario'];
             $nombre = $_POST['nombre'];
@@ -147,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             break;
              // Nuevo caso para actualizar usuario
-    case 'actualizarUsuario':
+        case 'actualizarUsuario':
         $id_usuario = $_POST['id_usuario'];
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
@@ -180,5 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: ../views/paginas/sesion/login.php");
             break;
     }
+
+    
 }
 ?>

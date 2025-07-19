@@ -46,11 +46,13 @@
             <i class="fas fa-key fa-lg mr-2"></i> Gestión de Permisos
         </a>
     </div>
+    <!--
     <div class="col-md-4 mb-3">
         <a href="modulos.php" class="btn btn-outline-info w-100 text-left shadow-sm p-3">
             <i class="fas fa-box fa-lg mr-2"></i> Ver Módulos
         </a>
     </div>
+    -->
     <div class="col-md-4 mb-3">
         <a href="accesos.php" class="btn btn-outline-secondary w-100 text-left shadow-sm p-3">
             <i class="fas fa-chart-line fa-lg mr-2"></i> Asignar Accesos
