@@ -57,19 +57,39 @@ function verificarAccesoModulo($ruta) {
         <?php endif; ?>
         <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/perfil.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/perfil/perfil.php"><i class="fas fa-user-circle icon icon-profile"></i> Perfil de Usuario</a></li>
-        <?php endif; ?>
-                 <?php if (verificarAccesoModulo('/Login/views/paginas/clientes/clientes.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/clientes/clientes.php"><i class="fas fa-home icon icon-history"></i> Clientes</a></li>
-        <?php endif; ?>
-         <?php if (verificarAccesoModulo('/Login/views/paginas/proveedores/proveedores.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/proveedores/proveedores.php"><i class="fas fa-home icon icon-user"></i> Proveedores</a></li>
-        <?php endif; ?>
-         <?php if (verificarAccesoModulo('/Login/views/paginas/pagos/pagos.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/pagos/pagos.php"><i class="fas fa-home icon icon-user"></i>Pagos</a></li>
-        <?php endif; ?>
-         <?php if (verificarAccesoModulo('/Login/views/paginas/creditos/creditos.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/creditos/creditos.php"><i class="fas fa-home icon icon-user"></i> Creditos</a></li>
-        <?php endif; ?>
+<?php endif; ?>
+<?php if (verificarAccesoModulo('/Login/views/paginas/clientes/clientes.php')): ?>
+    <li class="menu-item">
+        <a href="/Login/views/paginas/clientes/clientes.php">
+            <i class="fas fa-users icon icon-history"></i> Clientes
+        </a>
+    </li>
+<?php endif; ?>
+
+<?php if (verificarAccesoModulo('/Login/views/paginas/proveedores/proveedores.php')): ?>
+    <li class="menu-item">
+        <a href="/Login/views/paginas/proveedores/proveedores.php">
+            <i class="fas fa-truck icon icon-user"></i> Proveedores
+        </a>
+    </li>
+<?php endif; ?>
+
+<?php if (verificarAccesoModulo('/Login/views/paginas/pagos/pagos.php')): ?>
+    <li class="menu-item">
+        <a href="/Login/views/paginas/pagos/pagos.php">
+            <i class="fas fa-hand-holding-usd icon icon-user"></i> Pagos
+        </a>
+    </li>
+<?php endif; ?>
+
+<?php if (verificarAccesoModulo('/Login/views/paginas/creditos/creditos.php')): ?>
+    <li class="menu-item">
+        <a href="/Login/views/paginas/creditos/creditos.php">
+            <i class="fas fa-credit-card icon icon-user"></i> Créditos
+        </a>
+    </li>
+<?php endif; ?>
+
         <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/ayuda.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/perfil/ayuda.php"><i class="fas fa-question-circle icon icon-help"></i> Ayuda y Soporte</a></li>
         <?php endif; ?>
