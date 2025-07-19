@@ -12,16 +12,74 @@ $clientes = $model->obtenerClientes();
     <title>Clientes</title>
     <link rel="stylesheet" href="../../css/admin.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         .main-content {
             margin-left: 250px;
-            padding: 20px;
+            padding: 30px 40px;
         }
+
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0;
+                padding: 20px;
             }
+        }
+
+        .table-wrapper {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        .card .card-body {
+            padding: 2rem;
+        }
+
+        .table thead {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .table td, .table th {
+            vertical-align: middle;
+        }
+
+        .btn {
+            border-radius: 20px;
+        }
+
+        .badge-success {
+            background-color: #28a745;
+        }
+
+        .badge-secondary {
+            background-color: #6c757d;
+        }
+
+        .title-section {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
         }
     </style>
 </head>
@@ -30,44 +88,55 @@ $clientes = $model->obtenerClientes();
 <?php include '../administracion/menu_lateral.php'; ?>
 
 <div class="main-content">
-    <div class="container-fluid">
-        <h2 class="mb-4 text-center">Clientes</h2>
+    <h2 class="title-section text-center">Gestión de Clientes</h2>
 
-        <!-- Botón Agregar -->
-        <div class="mb-3 text-right">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#clienteModal" onclick="abrirModalNuevo()">Agregar Nuevo Cliente</button>
-        </div>
+    <!-- Botón Agregar -->
+    <div class="mb-4 text-right">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#clienteModal" onclick="abrirModalNuevo()">
+            <i class="fas fa-user-plus"></i> Agregar Nuevo Cliente
+        </button>
+    </div>
 
-        <!-- Tabla -->
-        <div class="card shadow">
-            <div class="card-body p-0">
+    <!-- Tabla -->
+    <div class="table-wrapper">
+        <div class="card">
+            <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped mb-0">
+                    <table class="table table-hover table-bordered table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th>ID</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Estado</th><th>Acciones</th>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($clientes as $c): ?>
-                            <tr>
-                                <td><?= $c['id_cliente'] ?></td>
-                                <td><?= $c['nombre'] ?></td>
-                                <td><?= $c['correo'] ?></td>
-                                <td><?= $c['telefono'] ?></td>
-                                <td>
-                                    <span class="badge badge-<?= $c['estado'] == 'activo' ? 'success' : 'secondary' ?>">
-                                        <?= ucfirst($c['estado']) ?>
-                                    </span>
-                                </td>
-                                <td>
-                                    <button class="btn btn-sm btn-warning" onclick='abrirModalEditar(<?= json_encode($c) ?>)'>Editar</button>
-                                    <a href="../../../controllers/ClienteController.php?accion=eliminar&id=<?= $c['id_cliente'] ?>"
-                                       onclick="return confirm('¿Deseas eliminar este cliente?')"
-                                       class="btn btn-sm btn-danger">Eliminar</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                            <?php foreach ($clientes as $c): ?>
+                                <tr>
+                                    <td><?= $c['id_cliente'] ?></td>
+                                    <td><?= $c['nombre'] ?></td>
+                                    <td><?= $c['correo'] ?></td>
+                                    <td><?= $c['telefono'] ?></td>
+                                    <td>
+                                        <span class="badge badge-<?= $c['estado'] == 'activo' ? 'success' : 'secondary' ?>">
+                                            <?= ucfirst($c['estado']) ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" onclick='abrirModalEditar(<?= json_encode($c) ?>)'>
+                                            <i class="fas fa-edit"></i> Editar
+                                        </button>
+                                        <a href="../../../controllers/ClienteController.php?accion=eliminar&id=<?= $c['id_cliente'] ?>"
+                                           onclick="return confirm('¿Deseas eliminar este cliente?')"
+                                           class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -112,7 +181,7 @@ $clientes = $model->obtenerClientes();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
@@ -133,6 +202,7 @@ function abrirModalNuevo() {
     document.getElementById('telefono').value = '';
     document.getElementById('correo').value = '';
     document.getElementById('estado').value = 'activo';
+    $('#clienteModal').modal('show');
 }
 
 function abrirModalEditar(cliente) {

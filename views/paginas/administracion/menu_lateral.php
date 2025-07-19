@@ -55,9 +55,7 @@ function verificarAccesoModulo($ruta) {
         <?php if (verificarAccesoModulo('/Login/views/paginas/administracion/admin_panel.php')): ?>
             <li class="menu-item"><a href="/Login/views/paginas/administracion/admin_panel.php"><i class="fas fa-tachometer-alt icon icon-role"></i> Administración</a></li>
         <?php endif; ?>
-        <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/perfil.php')): ?>
-            <li class="menu-item"><a href="/Login/views/paginas/perfil/perfil.php"><i class="fas fa-user-circle icon icon-profile"></i> Perfil de Usuario</a></li>
-<?php endif; ?>
+        
 <?php if (verificarAccesoModulo('/Login/views/paginas/clientes/clientes.php')): ?>
     <li class="menu-item">
         <a href="/Login/views/paginas/clientes/clientes.php">
@@ -88,6 +86,9 @@ function verificarAccesoModulo($ruta) {
             <i class="fas fa-credit-card icon icon-user"></i> Créditos
         </a>
     </li>
+<?php endif; ?>
+<?php if (verificarAccesoModulo('/Login/views/paginas/perfil/perfil.php')): ?>
+            <li class="menu-item"><a href="/Login/views/paginas/perfil/perfil.php"><i class="fas fa-user-circle icon icon-profile"></i> Perfil de Usuario</a></li>
 <?php endif; ?>
 
         <?php if (verificarAccesoModulo('/Login/views/paginas/perfil/ayuda.php')): ?>
